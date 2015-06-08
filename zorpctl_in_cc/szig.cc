@@ -244,7 +244,7 @@ z_szig_context_new(const char *instance_name)
   if (fd == -1)
     return NULL;
   unaddr.sun_family = AF_UNIX;
-  snprintf(unaddr.sun_path, sizeof(unaddr.sun_path), ZORP_PIDFILEDIR "zorpctl.%s", instance_name);
+  snprintf(unaddr.sun_path, sizeof(unaddr.sun_path), ZORP_PIDFILEDIR "/zorpctl.%s", instance_name);
   if (connect(fd, (struct sockaddr *) &unaddr, sizeof(unaddr)) < 0)
     {
       close(fd);
